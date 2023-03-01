@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Layout from '@/components/Layout'
 
 export default function Home() {
   return (
@@ -16,9 +13,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>
-            <code className={styles.code}>Aux Cash for Cars Sydney Hello</code>
-          </p>
+          <Layout />
         </div>
       </main>
     </>
