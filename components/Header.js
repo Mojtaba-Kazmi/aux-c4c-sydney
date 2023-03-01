@@ -16,11 +16,27 @@ import {
   ListItemText,
   ListItemButton,
   Drawer,
+  styled,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  "Home",
+  "Our Services",
+  "Our Blog",
+  "FAQS",
+  "About Us",
+  "Contact Us",
+];
+
+const HeaderAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.header.main, // using primary color for background
+}));
+
+const NavListItemText = styled(ListItemText)(({ theme }) => ({
+  marginLeft: theme.spacing(2),
+}));
 
 const Header = (props) => {
   const { window } = props;
@@ -38,7 +54,7 @@ const Header = (props) => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item} >
             <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={item} />
             </ListItemButton>
@@ -53,7 +69,7 @@ const Header = (props) => {
 
   return (
     <>
-      <AppBar position="static">
+      <HeaderAppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -66,9 +82,10 @@ const Header = (props) => {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <MenuIcon />
+                <MenuIcon style={{ color: "#1b5e20" }} />
               </IconButton>
             </Box>
+
             <Image
               src={logo}
               alt="logo"
@@ -78,18 +95,20 @@ const Header = (props) => {
             />
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {navItems.map((navItem) => (
+              {navItems.map((item) => (
                 <Button
-                  key={navItem}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  key={item}
+                  sx={{ my: 2, color: "#212121", display: "block" }}
                 >
-                  {navItem}
+                  <ListItemButton sx={{ textAlign: "center" }}>
+                    <NavListItemText secondary={item} />
+                  </ListItemButton>
                 </Button>
               ))}
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>
+      </HeaderAppBar>
       <Box component="nav">
         <Drawer
           container={container}
