@@ -69,8 +69,8 @@ const Header = (props) => {
 
   return (
     <>
-      <HeaderAppBar position="static">
-        <Container maxWidth="xl">
+      <HeaderAppBar>
+        <Container fixed>
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton

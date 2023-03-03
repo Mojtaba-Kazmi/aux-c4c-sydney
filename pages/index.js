@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import Layout from '@/components/Layout'
-import Slide from '@/components/Slide'
+import ImageSlider from '@/components/ImageSlider'
 import images from './api/images'
+import HowWeWorks from '@/components/HowWeWorks'
+import AboutCompany from '@/components/AboutCompany'
+import CompanyValues from '@/components/CompanyValues'
 
 export default function Home() {
   return (
@@ -13,11 +14,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <main className={styles.main}>
-        <div className={styles.description}>
-        </div>
-        <Slide images={images}/>
+      <main >
+        <ImageSlider images={images}/>
+        <HowWeWorks />
+        <AboutCompany />
+        <CompanyValues />
       </main>
     </>
   )
